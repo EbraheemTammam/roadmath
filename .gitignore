@@ -1,0 +1,8 @@
+__pycache__/
+db.sqlite3
+docker-compose-prod.yml
+.env
+.dockerignore
+key
+key.pub
+token

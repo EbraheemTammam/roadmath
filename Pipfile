@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-crispy-forms = "*"
+gunicorn = "*"
+environs = {extras = ["django"], version = "*"}
+crispy-bootstrap5 = "*"
+whitenoise = "*"
+psycopg2-binary = "*"
+django-allauth = "*"
+django-debug-toolbar = "*"
+django-rest-framework = "*"
+dj-rest-auth = "*"
+django-cors-headers = "*"
+drf-spectacular = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
