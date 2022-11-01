@@ -6,3 +6,4 @@ docker-compose-prod.yml
 key
 key.pub
 token
+*.yml
