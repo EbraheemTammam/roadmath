@@ -4,7 +4,7 @@ services:
     build: .
     ports:
       - "8000:8000"
-    command: python roadmath.wsgi 0.0.0.0:8000
+    command: gunicorn roadmath.wsgi -b 0.0.0.0:8000
     volumes:
       - .:/code
     depends_on:
@@ -17,6 +17,7 @@ services:
       - 'DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=False'
       - 'DJANGO_SECURE_HSTS_PRELOAD=False'
       - 'DJANGO_SESSION_COOKIE_SECURE=False'
+      - 'DATABASE_URL=postgres://postgres@db/postgres'
       - 'DJANGO_CSRF_COOKIE_SECURE=False'
   db:
     image: postgres

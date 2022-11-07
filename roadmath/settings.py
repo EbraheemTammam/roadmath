@@ -135,16 +135,16 @@ WSGI_APPLICATION = 'roadmath.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'db',
-        'PORT': '5432',
-    }
-}
+DATABASES = {'default' : env.dj_db_url('DATABASE_URL')} #if DEBUG else {
+    #'default': {
+    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #    'NAME': 'postgres',
+    #    'USER': 'postgres',
+    #    'PASSWORD': 'postgres',
+    #    'HOST': 'localhost',
+    #    'PORT': '5432',
+    #}
+#}
 
 
 # Password validation
