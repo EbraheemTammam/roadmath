@@ -76,6 +76,14 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
+REST_AUTH_REGISTER_SERIALIZERS = {
+        'REGISTER_SERIALIZER': 'users.serializers.RegisterSerializer',
+}
+
+REST_AUTH_SERIALIZERS = {
+    'LOGIN_SERIALIZER': 'users.serializers.LoginSerializer'
+}
+
 SPECTACULAR_SETTINGS = {
     'TITLE': 'RoadMath API Project',
     'DESCRIPTION': 'Website for math tests and questions',
@@ -211,6 +219,7 @@ AUTHENTICATION_BACKENDS =  (
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_USERNAME_REQUIERED = False
 
 # django debug toolbar
 import socket
