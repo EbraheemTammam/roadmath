@@ -17,6 +17,7 @@ from allauth.account.utils import setup_user_email
 class RegisterSerializer(serializers.Serializer):
     first_name = serializers.CharField(required=True, write_only=True)
     last_name = serializers.CharField(required=True, write_only=True)
+    username = serializers.CharField(required=True, write_only=True)
     email = serializers.EmailField(required=allauth_settings.EMAIL_REQUIRED)
     password1 = serializers.CharField(write_only=True)
     password2 = serializers.CharField(write_only=True)
@@ -77,3 +78,14 @@ from dj_rest_auth.serializers import LoginSerializer as RestAuthLoginSerializer
 
 class LoginSerializer(RestAuthLoginSerializer):
     username = None
+
+from dj_rest_auth.models import TokenModel
+
+class TokenSerializer(serializers.ModelSerializer):
+    """
+    Serializer for Token model.
+    """
+    user = UserSerializer(read_only=True)
+    class Meta:
+        model = TokenModel
+        fields = ('key', 'user') 

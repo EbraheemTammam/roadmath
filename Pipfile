@@ -17,6 +17,7 @@ django-rest-framework = "*"
 dj-rest-auth = "*"
 django-cors-headers = "*"
 drf-spectacular = "*"
+djangorestframework-simplejwt = {extras = ["crypto"], version = "*"}
 
 [dev-packages]
 
