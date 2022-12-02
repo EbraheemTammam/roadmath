@@ -7,12 +7,12 @@ from .models import Article, Comment
 from .permissions import IsAuthorOrReadOnly
 
 
-class ArticleListView(LoginRequiredMixin, generics.ListCreateAPIView):
+class ArticleListView(generics.ListCreateAPIView):
     permission_classes = (IsAuthorOrReadOnly,)
     queryset = Article.objects.all()
     serializer_class = ArticleListSerializer
 
-class ArticleDetailView(LoginRequiredMixin, generics.RetrieveUpdateDestroyAPIView):
+class ArticleDetailView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthorOrReadOnly,)
     queryset = Article.objects.all()
     serializer_class = ArticleDetailSerializer

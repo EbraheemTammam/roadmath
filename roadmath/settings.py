@@ -73,21 +73,24 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_AUTHENTICATION_CLASSES' : [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        #'rest_framework.authentication.SessionAuthentication',
         #'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
+REST_USE_JWT = True
+JWT_AUTH_COOKIE = 'roadmath-auth' 
+
 REST_SESSION_LOGIN = False
 
 REST_AUTH_REGISTER_SERIALIZERS = {
-        'REGISTER_SERIALIZER': 'users.serializers.RegisterSerializer',
+    'REGISTER_SERIALIZER': 'users.serializers.RegisterSerializer',
 }
 
 REST_AUTH_SERIALIZERS = {
     'LOGIN_SERIALIZER': 'users.serializers.LoginSerializer',
-    'TOKEN_SERIALIZER': 'users.serializers.TokenSerializer',
+    #'TOKEN_SERIALIZER': 'users.serializers.TokenSerializer',
 }
 
 SPECTACULAR_SETTINGS = {
@@ -118,6 +121,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:5500',
     'http://localhost:3000',
     'http://localhost:8000',
 ]
@@ -267,4 +271,4 @@ SESSION_COOKIE_SECURE = env.bool('DJANGO_SESSION_COOKIE_SECURE', default=True)
 CSRF_COOKIE_SECURE = env.bool('DJANGO_CSRF_COOKIE_SECURE', default=True)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'http://127.0.0.1:5500']
